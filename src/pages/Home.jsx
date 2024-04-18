@@ -18,7 +18,9 @@ function Home() {
       {/* Pagination Buttons */}
       <div className="movie-card-wrapper">
         {movieList.length > 0 &&
-          movieList.map((movie) => <MovieCard key={movie.imdbID} {...movie} />)}
+          movieList.map((movie) => (
+            <MovieCard key={movie.imdbID} id={movie.imdbID} {...movie} />
+          ))}
       </div>
     </>
   );
