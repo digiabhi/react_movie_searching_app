@@ -6,19 +6,11 @@ import MovieCard from "../components/MovieCard/MovieCard";
 
 // CSS imports
 import "./Home.css";
-import axios from "axios";
+import useMovieList from "../hooks/useMovieList";
 
 function Home() {
-  const [movieList, setMovieList] = useState([]);
-  async function downloadDefaultMovies(...args) {
-    const urls = args.map((name) => searchMovie(name));
-    const response = await axios.all(urls.map((url) => axios.get(url)));
-    const movies = response.map((movieResponse) => movieResponse.data.Search);
-    setMovieList([].concat(...movies));
-  }
-  useEffect(() => {
-    downloadDefaultMovies("harry", "avengers", "batman");
-  }, []);
+  const { movieList } = useMovieList("harry", "avengers", "batman");
+
   return (
     <>
       {/* Navbar */}
