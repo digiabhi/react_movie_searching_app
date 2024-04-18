@@ -33,8 +33,8 @@ function MovieDetails() {
 
       {movie && (
         <div className="movie-details">
-          <div>Plot:{movie.Plot}</div>
-          <div>Actors:{movie.Actors}</div>
+          <div>Plot: {movie.Plot}</div>
+          <div>Actors: {movie.Actors}</div>
           <div>
             Genre:
             {movie.Genre.split(",").map((genre) => {
